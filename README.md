@@ -7,8 +7,8 @@ Simple Dockerfile for building sbt-based projects using Github Actions.
 
 There is builtin support for resolving dependencies from a private Bintray repository by providing the following two [secrets](https://developer.github.com/actions/creating-workflows/storing-secrets/) to your Github project:
 
-- `BINTRAY_USERNAME`
-- `BINTRAY_PASSWORD`
+- `ARTIFACTORY_REALM_USERNAME`
+- `ARTIFACTORY_REALM_PASSWORD`
 
 The values of these secrets must be set in your repository's "Settings" tab, sub-section "Secrets"
 
@@ -21,9 +21,9 @@ workflow "on push, build and test" {
 }
 
 action "build-and-test" {
-  uses = "agemooij/github-actions-sbt@master"
+  uses = "innovaccer/github-actions-sbt@master"
   args = "test"
-  secrets = ["BINTRAY_USERNAME", "BINTRAY_PASSWORD"]
+  secrets = ["ARTIFACTORY_REALM_USERNAME", "ARTIFACTORY_REALM_PASSWORD"]
   env = {
     SBT_OPTS = "-Xms512M -Xmx2048M -Xss2M -XX:MaxMetaspaceSize=1024M"
   }
