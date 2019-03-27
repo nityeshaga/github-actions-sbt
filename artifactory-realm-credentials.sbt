@@ -1,4 +1,5 @@
-val bintrayUsername = sys.env.get("BINTRAY_USERNAME").getOrElse("")
-val bintrayPassword = sys.env.get("BINTRAY_PASSWORD").getOrElse("")
+val artifactoryRealmUsername = sys.env.get("ARTIFACTORY_REALM_USERNAME").getOrElse("")
+val artifactoryRealmPassword = sys.env.get("ARTIFACTORY_REALM_PASSWORD").getOrElse("")
 
-credentials += Credentials("Bintray", "dl.bintray.com", bintrayUsername, bintrayPassword)
+publishTo := Some("Artifactory Realm" at "http://lib.innovaccer.com:8081/artifactory/sbt-dev-local;build.timestamp=" + new java.util.Date().getTime)
+credentials += Credentials("Artifactory Realm", "lib.innovaccer.com", artifactoryRealmUsername, artifactoryRealmPassword)
