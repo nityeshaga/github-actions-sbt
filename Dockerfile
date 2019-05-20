@@ -29,4 +29,4 @@ RUN apk -v --update add \
     apk -v --purge del py-pip && \
     rm /var/cache/apk/*
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["sbt"]
