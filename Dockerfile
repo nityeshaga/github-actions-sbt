@@ -31,5 +31,4 @@ RUN apk -v --update add \
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-RUN chmod +x /entrypoint1.sh
 ENTRYPOINT ["/entrypoint.sh"]
