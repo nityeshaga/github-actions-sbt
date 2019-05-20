@@ -29,6 +29,6 @@ RUN apk -v --update add \
     apk -v --purge del py-pip && \
     rm /var/cache/apk/*
 
-COPY entrypoint.sh /github/workspace/entrypoint.sh
-
-ENTRYPOINT ["/github/workspace/entrypoint.sh"]
+COPY entrypoint.sh /usr/local/bin/
+RUN ln -s usr/local/bin/entrypoint.sh / # backwards compat
+ENTRYPOINT ["entrypoint.sh"]
