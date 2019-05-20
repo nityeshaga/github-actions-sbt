@@ -2,7 +2,7 @@
 
 set -e
 
-sbt clean compile assembly
+#sbt clean compile assembly
 
 CWD=$(pwd)
 echo $CWD
