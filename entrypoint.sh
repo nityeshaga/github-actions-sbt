@@ -2,10 +2,6 @@
 
 set -e
 
-CWD=$(pwd)
-echo $CWD
-touch testfile.txt
-
-python -m awscli s3 cp testfile.txt s3://${BUCKET_NAME}/
-
 sbt clean compile assembly
+
+python -m awscli s3 cp target/scala-2.11/ingestion.jar s3://${BUCKET_NAME}/
